@@ -1,0 +1,644 @@
+:root {
+    --parchment: #f4e4bc;
+    --parchment-dark: #e2cf9f;
+    --ink: #2c1e14;
+    --gold: #b8860b;
+    --gold-bright: #ffd700;
+    --crimson: #800000;
+    --border-style: 4px double var(--ink);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a120b;
+    background-image: radial-gradient(#2c1e14 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.nav-links a,
+.quest-title,
+label,
+.btn-scroll,
+.close-btn {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.scroll-container {
+    max-width: 900px;
+    width: 100%;
+    background: var(--parchment);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    padding: 60px;
+    position: relative;
+    box-shadow: var(--shadow);
+    border: 20px solid transparent;
+    border-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png') 30 stretch;
+}
+
+.scroll-container::before,
+.scroll-container::after {
+    content: '✧';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--gold);
+    z-index: 5;
+}
+
+.scroll-container::before {
+    top: 10px;
+    left: 10px;
+}
+
+.scroll-container::after {
+    bottom: 10px;
+    right: 10px;
+}
+
+nav {
+    border-bottom: var(--border-style);
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--crimson);
+    font-weight: bold;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    text-shadow: 0 0 5px rgba(184, 134, 11, 0.5);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--crimson);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#hero {
+    text-align: center;
+    padding: 40px 0 80px;
+    border-bottom: 1px solid rgba(44, 30, 20, 0.2);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: var(--crimson);
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.hero-subtitle {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.seal {
+    width: 100px;
+    height: 100px;
+    background: var(--crimson);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--parchment);
+    font-size: 3rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--gold);
+    user-select: none;
+}
+
+#quests {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: var(--ink);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: var(--gold);
+    margin: 10px auto;
+}
+
+#cv {
+    padding: 80px 0;
+    text-align: center;
+}
+
+#cv p {
+    max-width: 760px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.8;
+}
+
+.btn-download {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--crimson), #aa0000);
+    color: #fff;
+    border: 2px solid var(--gold);
+    padding: 14px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: var(--transition);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+#cv .section-title {
+    margin-bottom: 20px;
+}
+
+#cv .section-title::after {
+    width: 120px;
+}
+
+.quest-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.quest-card {
+    border: 1px solid rgba(44, 30, 20, 0.2);
+    border-left: 5px solid var(--crimson);
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.quest-card:hover {
+    transform: translateX(10px);
+    background: var(--parchment-dark);
+    border-color: var(--gold);
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.quest-thumb {
+    width: 180px;
+    min-width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(44, 30, 20, 0.15);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.quest-card-body {
+    flex: 1;
+}
+
+.focus-body {
+    margin: 20px 0;
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+.focus-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--ink);
+}
+
+.source-link {
+    color: var(--crimson);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--crimson);
+    transition: var(--transition);
+}
+
+.source-link:hover {
+    color: var(--gold);
+}
+
+.detail-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.detail-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(44, 30, 20, 0.15);
+}
+
+.quest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.quest-title {
+    font-size: 1.8rem;
+    color: var(--crimson);
+}
+
+.quest-status {
+    font-family: 'MedievalSharp', cursive;
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.quest-summary {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--ink);
+}
+
+#focus-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+}
+
+.focus-content {
+    background: var(--parchment);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    max-width: 650px;
+    width: 100%;
+    padding: 50px;
+    border: 8px double var(--ink);
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--crimson);
+    cursor: pointer;
+}
+
+#contact {
+    padding: 60px 0;
+    background: rgba(44, 30, 20, 0.05);
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--ink);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-bottom-color: var(--crimson);
+}
+
+.btn-scroll {
+    background: var(--crimson);
+    color: white;
+    border: 2px solid var(--gold);
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.btn-scroll:hover {
+    background: #a00000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(128, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a120b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border: 3px solid #1a120b;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .scroll-container {
+        padding: 30px 20px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .quest-header {
+        flex-direction: column;
+    }
+
+    .quest-title {
+        font-size: 1.4rem;
+    }
+
+    .focus-content {
+        padding: 30px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--parchment);
+        padding: 20px;
+        box-shadow: var(--shadow);
+        z-index: 10;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .quest-card {
+        flex-direction: column;
+    }
+
+    .quest-thumb {
+        width: 100%;
+        min-width: auto;
+        height: 220px;
+    }
+}
+
+.center-me {
+    text-align: center;
+}
+
+.message-me {
+    resize: vertical;
+}
+
+#quest-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--paper);
+    color: var(--dark-bg);
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    border: 5px double var(--dark-bg);
+    position: relative;
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+}
+
+.modal-content h2 {
+    font-family: 'Cinzel', serif;
+    margin-top: 0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--crimson);
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.skill-card {
+    width: 160px;
+    height: 240px;
+    background: var(--paper);
+    color: var(--dark-bg);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    user-select: none;
+}
+
+.skill-card:hover {
+    transform: rotateY(10deg) translateY(-10px);
+    box-shadow: 10px 10px 20px rgba(197, 160, 89, 0.2);
+}
+
+.card-corner {
+    position: absolute;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-align: center;
+    color: var(--crimson);
+}
+
+.card-corner.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.card-corner.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(180deg);
+}
+
+.skill-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+    pointer-events: none;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--dark-bg);
+    opacity: 0.8;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+}
+
+#project-search {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid rgba(44, 30, 20, 0.25);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--ink);
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+#project-search:focus {
+    border-color: var(--crimson);
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.12);
+}
